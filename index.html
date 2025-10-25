@@ -1077,7 +1077,7 @@
             <div class="portfolio">
                 <div class="portfolio-item">
                     <div class="image-container">
-                        <img src="./Muhammad Sufiyan _ Portfolio_files/CPI Power BI.jpg" alt="CPI Power BI">
+                        <img src="./Muhammad Sufiyan _ Portfolio_files/CPI Power BI.jpg" alt="Report for Cement Industry">
                     </div>
                     <div class="portfolio-item-content">
                         <p>Report for Cement Industry</p>
@@ -1089,7 +1089,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="image-container">
-                        <img src="./Muhammad Sufiyan _ Portfolio_files/HR Payroll PowerBI.jpg" alt="HR Payroll PowerBI">
+                        <img src="./Muhammad Sufiyan _ Portfolio_files/HR Payroll PowerBI.jpg" alt="Report for HR Payroll">
                     </div>
                     <div class="portfolio-item-content">
                         <p>Report for HR Payroll</p>
@@ -1101,7 +1101,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="image-container">
-                        <img src="./Muhammad Sufiyan _ Portfolio_files/jamjoom power bi.jpg" alt="Jamjoom Power BI">
+                        <img src="./Muhammad Sufiyan _ Portfolio_files/jamjoom power bi.jpg" alt="Report for Pharmaceuticals Co">
                     </div>
                     <div class="portfolio-item-content">
                         <p>Report for Pharmaceuticals Co.</p>
@@ -1113,7 +1113,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="image-container">
-                        <img src="./Muhammad Sufiyan _ Portfolio_files/Kinan Power BI.jpg" alt="Kinan Power BI">
+                        <img src="./Muhammad Sufiyan _ Portfolio_files/Kinan Power BI.jpg" alt="Report for Real Estate Co">
                     </div>
                     <div class="portfolio-item-content">
                         <p>Report for Real Estate Co.</p>
@@ -1125,7 +1125,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="image-container">
-                        <img src="./Muhammad Sufiyan _ Portfolio_files/KKF Power BI.jpg" alt="KKF Power BI">
+                        <img src="./Muhammad Sufiyan _ Portfolio_files/KKF Power BI.jpg" alt="Report for NGO">
                     </div>
                     <div class="portfolio-item-content">
                         <p>Report for NGO</p>
@@ -1138,12 +1138,12 @@
             </div>
         </section>
 
-        <section class="fade-in" id="portfolio">
+        <section class="fade-in" id="portfolio2">
             <h2>Enterprise Level Projects</h2>
             <div class="portfolio">
                 <div class="portfolio-item">
                     <div class="image-container">
-                        <img src="./Muhammad Sufiyan _ Portfolio_files/MXL Gatekeepr Website.jpg" alt="MXL Gatekeepr Website">
+                        <img src="./Muhammad Sufiyan _ Portfolio_files/MXL Gatekeepr Website.jpg" alt="Gatekeeper WebApp">
                     </div>
                     <div class="portfolio-item-content">
                         <p>Gatekeeper WebApp</p>
@@ -1155,7 +1155,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="image-container">
-                        <img src="./Muhammad Sufiyan _ Portfolio_files/fazahwom.png" alt="MXL Gatekeepr Website">
+                        <img src="./Muhammad Sufiyan _ Portfolio_files/fazahwom.png" alt="Web Order Management System">
                     </div>
                     <div class="portfolio-item-content">
                         <p>Web Order Management System</p>
@@ -1167,7 +1167,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="image-container">
-                        <img src="./Muhammad Sufiyan _ Portfolio_files/EHCM Website.jpg" alt="EHCM Website">
+                        <img src="./Muhammad Sufiyan _ Portfolio_files/EHCM Website.jpg" alt="EHCM WebApp">
                     </div>
                     <div class="portfolio-item-content">
                         <p>EHCM WebApp</p>
@@ -1179,7 +1179,7 @@
                 </div>
                 <div class="portfolio-item">
                     <div class="image-container">
-                        <img src="./Muhammad Sufiyan _ Portfolio_files/amadeus.png" alt="EHCM Website">
+                        <img src="./Muhammad Sufiyan _ Portfolio_files/amadeus.png" alt="Data Processing Desktop Application">
                     </div>
                     <div class="portfolio-item-content">
                         <p>Data Processing Desktop Application</p>
@@ -1300,20 +1300,23 @@
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
             const captionText = document.getElementById('caption');
             const closeBtn = document.querySelector('.close-modal-btn');
-            document.querySelector('.portfolio').addEventListener('click', function (e) {
-                const img = e.target.closest('.portfolio-item')?.querySelector('img');
+            // Select all .portfolio sections
+            const portfolios = document.querySelectorAll('.portfolio');
 
-                if (img) {
-                    modal.style.display = 'block';
-                    modalImg.src = img.src;
-                    captionText.textContent = img.alt;
-                    document.body.style.overflow = 'hidden';
-                }
+            portfolios.forEach(portfolio => {
+                portfolio.addEventListener('click', function (e) {
+                    const img = e.target.closest('.portfolio-item')?.querySelector('img');
+                    if (img) {
+                        modal.style.display = 'block';
+                        modalImg.src = img.src;
+                        captionText.textContent = img.alt;
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
             });
 
             closeBtn.addEventListener('click', closeModal);
